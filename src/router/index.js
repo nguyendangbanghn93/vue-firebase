@@ -1,25 +1,24 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+  import { createRouter, createWebHistory } from 'vue-router' //import của router
+  // import 2 cái file view của mình vào
+  import Home from '@/views/Home.vue' 
+  import Edit from '@/views/Edit.vue'
 
-const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
+  const routes = [
+    {
+      path: '/',      //Đường dẫn này sẽ chạy vào            
+      name: 'Home',    
+      component: Home // component này, component này tương ứng với view đowcj import ở trren
+    },
+    {
+      path: '/edit/:id', //Khai báo lấy id từ đường dẫn :id
+      name: 'Edit', // có thể chuyển link bằng cái tên này
+      component: Edit
+    }
+  ]
 
-const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  const router = createRouter({ //Tạo router bằng thư viện router khi tạo project mình đã thêm vào
+    history: createWebHistory(),
+    routes
+  })
 
-export default router
+  export default router
